@@ -9,11 +9,12 @@ public class dtwclass{
         double d[][]=new double[n][m]; // the euclidian distances matrix
         for(int i=0;i<n;i++)
         for(int j=0;j<m;j++)d[i][j]=Math.abs(a[i]-b[j]);
+        
         // determinate of minimal distance
         dw[0][0]=d[0][0];
         for(int i=1;i<n;i++)dw[i][0]=d[i][0]+dw[i-1][0];
         for(int j=1;j<m;j++)dw[0][j]=d[0][j]+dw[0][j-1];
-        /*
+        
         for(int i=1;i<n;i++) {
             for(int j=1;j<m;j++) {
                 if(dw[i-1][j-1]<=dw[i-1][j]) {
@@ -26,9 +27,10 @@ public class dtwclass{
                 }
             }
         }
-        */
+        
         int i=n-1,j=m-1;
         double element=dw[i][j];
+        
         // determinate of warping path
         w.push(new Double(dw[i][j]));
         do{
